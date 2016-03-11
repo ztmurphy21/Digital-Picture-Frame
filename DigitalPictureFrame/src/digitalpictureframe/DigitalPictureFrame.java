@@ -7,7 +7,13 @@ package digitalpictureframe;
 
 import java.io.File;
 import java.time.Duration;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import java.util.stream.Collectors;
 import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -16,6 +22,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -26,45 +33,30 @@ import javafx.stage.Stage;
  * @author Zachary Murphy
  */
 public class DigitalPictureFrame extends Application {
-    int i;
-    String[] images = {"1.png", "2.png", "3.png"};
-    
-    
-    
+
+
     @Override
-    public void start(Stage primaryStage) throws Exception {
-       Label label = new Label();
-       label.setAlignment(Pos.CENTER);
-       VBox vBox = new VBox();
-       vBox.setAlignment(Pos.CENTER);
-       EventHandler<ActionEvent> handler = event->{
-            for (i =1; i>4; i++){
-                i = Integer.parseInt(label.getText());
-                label.setText(String.valueOf(i));
-                
-            }
-            
-            
-        };
-       Duration gap = Duration.ofSeconds(10);
-       KeyFrame keyFrame = new KeyFrame(gap, handler);
-       
-       Timeline timeline = new Timeline(keyFrame);
-       timeline.setCycleCount(i);
-       
-       primaryStage.setScene(new Scene(label, 250,30));
-       primaryStage.setTitle("Digital Picture Frame");
-       primaryStage.show();
-       timeline.playFromStart();
-       
-       
+    public void start(Stage primaryStage) {
+          
+        Image image1 = new Image("1.png");
+        Image image2 = new Image("2.png");
+        Image image3 = new Image("3.png");
+        ImageView imageView = new ImageView();
+        Timeline timeline = new Timeline(
+
+                new KeyFrame(Duration.ZERO, new KeyValue(imageView.imageProperty(), image1)),
+            new KeyFrame(Duration.seconds(3), new KeyValue(imageView.imageProperty(), image2)),  
+            new KeyFrame(Duration.seconds(3), new KeyValue(imageView.imageProperty(), image3)),
+            new KeyFrame(Duration.seconds(3), new KeyValue(imageView.imageProperty(), null))
+            );
+        timeline.play();
+        StackPane root = new StackPane();
+        root.getChildren().add(imageView);
+        primaryStage.setScene(new Scene(root, 800, 600));
+        primaryStage.show();
     }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         launch(args);
     }
-    
 }
