@@ -45,9 +45,9 @@ public class DigitalPictureFrame extends Application {
         Timeline timeline = new Timeline(
 
                 new KeyFrame(Duration.ZERO, new KeyValue(imageView.imageProperty(), image1)),
-            new KeyFrame(Duration.seconds(3), new KeyValue(imageView.imageProperty(), image2)),  
-            new KeyFrame(Duration.seconds(3), new KeyValue(imageView.imageProperty(), image3)),
-            new KeyFrame(Duration.seconds(3), new KeyValue(imageView.imageProperty(), null))
+            new KeyFrame(Duration.seconds(1), new KeyValue(imageView.imageProperty(), image2)),  
+            new KeyFrame(Duration.seconds(2), new KeyValue(imageView.imageProperty(), image3)),
+            new KeyFrame(Duration.seconds(4), new KeyValue(imageView.imageProperty(), null))
             );
         timeline.play();
         StackPane root = new StackPane();
