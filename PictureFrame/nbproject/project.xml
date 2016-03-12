@@ -13,10 +13,9 @@
             </extension>
         </buildExtensions>
         <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
-            <name>DigitalPictureFrame</name>
+            <name>PictureFrame</name>
             <source-roots>
                 <root id="src.dir"/>
-                <root id="src.jre1.8.0_73.dir"/>
             </source-roots>
             <test-roots>
                 <root id="test.src.dir"/>
