@@ -6,8 +6,9 @@
 package digitalpictureframe;
 
 import java.io.File;
-import java.time.Duration;
+//import java.time.Duration;
 import java.util.Arrays;
+import javafx.util.Duration;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
